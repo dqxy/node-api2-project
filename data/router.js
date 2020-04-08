@@ -100,11 +100,11 @@ router.delete('/:id', (req, res) => {
                 if (resp > 0) {
                     res.status(200).json(post);
                 } else {
-                    res.status(500).json({ error: "The post could not be removed." });
+                    res.status(401).json({ error: "The post could not be removed." });
                 }
             })
             .catch(er => {
-                res.status(500).json({ error: "The post could not be removed." });
+                res.status(500).json({ error: er.message });
             })
         }
     })
